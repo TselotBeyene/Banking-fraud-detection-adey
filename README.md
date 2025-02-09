@@ -34,7 +34,7 @@ cd banking-fraud-detection-adey
 Set up the Virtual Environment:
 Create a virtual environment to manage the project's dependencies:
 
-For Windows: bash
+# For Windows: bash
 
 bash
 Copy

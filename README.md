@@ -29,7 +29,8 @@ Clone the Repository:
 bash
 Copy
 Edit
-git clone https://github.com/GetieBalew24/banking-fraud-detection-adey.git
+    git clone https://github.com/TselotBeyene/Banking-fraud-detection-adey.git
+
 cd banking-fraud-detection-adey
 Set up the Virtual Environment:
 Create a virtual environment to manage the project's dependencies:

@@ -1,7 +1,6 @@
 # folder
 .pypirc
-data
-
+/data
 # Environments
 .env
 .venv

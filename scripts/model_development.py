@@ -166,6 +166,7 @@ class ModelPipeline:
         # Step 1: Load data
         self.load_data()
         
+        
         # Step 2: Split data
         self.split_data()
         self.apply_smote()

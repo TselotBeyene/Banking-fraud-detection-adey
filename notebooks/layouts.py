@@ -1,45 +1,42 @@
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
+# Helper function to generate KPI Cards
+def create_kpi_card(title, id, color):
+    return dbc.Col(
+        dbc.Card([
+            dbc.CardBody([
+                html.H4(title, className="card-title"),
+                html.P("Loading...", id=id, className="card-text")
+            ])
+        ], color=color, inverse=True),
+        width=4,
+        className="p-2"
+    )
+
+# Function to create the layout
 def create_layout():
     return dbc.Container(
         [
-           # Navigation Bar with Enhanced Design
+            # Navigation Bar with Enhanced Design
             dbc.NavbarSimple(
                 children=[
                     dbc.NavItem(dbc.NavLink("Home", href="/", style={"color": "#FFFFFF"})),
                 ],
                 brand="Fraud Detection Dashboard",
-                brand_style={"color": "#FFFFFF",  "fontSize": "1.5rem", "fontWeight": "bold"},
+                brand_style={"color": "#FFFFFF", "fontSize": "1.5rem", "fontWeight": "bold"},
                 brand_href="/",
                 color="rgb(61, 105, 153)",
                 dark=True,
-                style={"fontFamily": "Montserrat, sans-serif", 
-                       "fontWeight": "bold"},
+                style={"fontFamily": "Montserrat, sans-serif", "fontWeight": "bold"},
                 className="mb-4",  # Margin below the navbar
             ),
+
             # KPI Cards Row
             dbc.Row([
-                dbc.Col(dbc.Card([
-                    dbc.CardBody([
-                        html.H4("Total Transactions", className="card-title"),
-                        html.P("Loading...", id="total-transactions", className="card-text")
-                    ])
-                ], color="primary", inverse=True), width=4, className="p-2"),
-
-                dbc.Col(dbc.Card([
-                    dbc.CardBody([
-                        html.H4("Fraud Cases", className="card-title"),
-                        html.P("Loading...", id="fraud-cases", className="card-text")
-                    ])
-                ], color="danger", inverse=True), width=4, className="p-2"),
-
-                dbc.Col(dbc.Card([
-                    dbc.CardBody([
-                        html.H4("Fraud Percentage", className="card-title"),
-                        html.P("Loading...", id="fraud-percentage", className="card-text")
-                    ])
-                ], color="info", inverse=True), width=4, className="p-2"),
+                create_kpi_card("Total Transactions", "total-transactions", "primary"),
+                create_kpi_card("Fraud Cases", "fraud-cases", "danger"),
+                create_kpi_card("Fraud Percentage", "fraud-percentage", "info")
             ], justify="center", className="mb-4"),
 
             # Graph Row
